@@ -1,0 +1,41 @@
+package primeiro_projeto;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public abstract class teste {
+
+	public static void main(String[] args) {
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Preço do produto: ");
+		double preco = sc.nextDouble();
+		
+		System.out.println("Código do produto: ");
+		double codig = sc.nextDouble();
+		
+		double fim = 0;
+		double desc = 0;
+		
+		if (preco <= 30) {
+			fim = preco; desc = 0;
+		}
+		
+		else if (preco <= 100) {
+			desc = preco*0.1; fim = preco - desc;
+		}
+		
+		else if (preco > 100) {
+			desc = preco * 0.15; fim = preco - desc;
+		}
+		
+		System.out.println ("O código do produto é: "+codig);
+		System.out.println("O valor de desconto é: "+desc);
+		System.out.println("O novo preço do produto é: "+fim);
+		
+		sc.close();
+		
+	}
+
+}
