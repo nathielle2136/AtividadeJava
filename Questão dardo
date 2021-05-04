@@ -1,0 +1,33 @@
+package poo;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Questao24 {
+	public static void main(String[] args) {
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		
+    int maior = 0;
+    System.out.println("Digite as tres distancias");
+    int a = sc.nextInt();
+    int b = sc.nextInt();
+    int c = sc.nextInt();
+
+
+
+    if((a > b) && (a >c))
+        maior = a;
+
+    else if((b > a)&&(b > c))
+        maior = b;
+
+    else if((c > a)&&(c > b))
+        maior = c;
+
+    System.out.println(" MAIOR DISTANCIA:  = " + maior);
+		
+		sc.close();
+		
+	}
+}
