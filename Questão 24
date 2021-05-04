@@ -1,0 +1,100 @@
+package primeiro_projeto;
+
+import java.util.Scanner;
+
+public class Exem2 {
+
+	public static void main(String[] args) {
+		 
+				int categoria = 0, situacao = 0;
+				String classificacao;
+				double preco, precoAumento = 0, precoImposto = 0, precoFinal = 0;
+				
+				Scanner e = new Scanner(System.in);
+				
+				System.out.println("INFORME UM PREÇO:");
+				preco = e.nextDouble();
+			
+				System.out.println("CATEGORIA:");
+				System.out.println("1° - LIMPEZA:");
+				System.out.println("2° - ALIMENTAÇÃO:");
+				System.out.println("3° - VESTUÁRIO:");    
+				categoria = e.nextInt();
+				
+				System.out.println("PRECISA DE REFRIGERAÇÃO:");
+				System.out.println("1° - SIM");
+				System.out.println("2° - NÃO");    
+				situacao = e.nextInt();
+				
+				if (preco <= 25) { 
+					
+					switch (categoria) {
+				
+						case 1:
+							precoAumento = (((preco * 5)  / 100) +  preco);
+						break;
+					
+						case 2: 
+							precoAumento = (((preco *  8) / 100) + preco);
+						break;
+					
+						case 3: 
+							precoAumento = (((preco * 10) / 100) + preco);
+						break; 
+				
+					}
+				
+				} else {
+					
+					switch (categoria) {
+					
+						case 1:
+							precoAumento = (((preco * 12) / 100) + preco);
+						break;
+						
+						case 2:
+							precoAumento = (((preco * 15) / 100) + preco);
+						break;
+						
+						case 3:
+							precoAumento = (((preco * 18) / 100) + preco);
+						break;
+					}
+				
+				}
+				
+
+				
+				if (categoria == 2 || situacao == 1) {
+					
+					precoImposto = (((preco * 5) / 100));
+					
+				} else { 
+					precoImposto = (((preco * 8) / 100));
+					
+				}
+				
+				precoFinal = precoAumento - precoImposto;
+				
+				if ( precoFinal <= 50 ) {
+					
+					classificacao = "BARATO";
+					
+				} else if ( precoFinal >= 50 && precoFinal <= 120 ) {
+					
+					classificacao = "NORMAL";
+				} else {
+					
+					classificacao = "CARO";
+					
+				}
+				
+				
+				System.out.println("O PRECO FINAL É: "+precoFinal);
+				System.out.println("CLASSIFICAÇÃO: "+classificacao);
+				
+				
+				
+	}
+
+}
