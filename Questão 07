@@ -1,0 +1,54 @@
+package primeiro_projeto;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class ques8 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Locale.setDefault(Locale.US);
+		
+		char corOlho, corCabelo;
+		double peso, altura, totalInferior = 0, mediaInferior, porcentagem;
+		int i, idade, tipo1 = 0, tipo2 = 0, tipo3 = 0, tipo4 = 0;
+		
+		for(i = 1; i<=6; i++) {
+		
+			System.out.println("Insira a idade, o peso, altura(em cm), cor dos olhos(A/P/V/C) e do cabelo(P/C/L/R)");
+			idade = sc.nextInt();
+			peso = sc.nextDouble();
+			altura = sc.nextDouble();
+			corOlho = sc.next().charAt(0);
+			corCabelo = sc.next().charAt(0);
+			
+			if(idade > 50 && peso < 60) {
+				tipo1 = tipo1 + 1;
+			}
+			
+			if(altura < 150) {
+				tipo2 = tipo2 + 1;
+				totalInferior = totalInferior + altura;
+			}
+			if(corOlho == 'A') {
+				tipo3 = tipo3 + 1;
+			}
+			if(corCabelo == 'R' && corOlho != 'A') {
+				tipo4 = tipo4 + 1;
+			}
+			System.out.println("---------------------");
+		}
+		
+		mediaInferior = totalInferior/tipo2;
+		porcentagem = (tipo3 * 100)/6;
+		
+		System.out.println("Quantidade de pessoas com mais de 50 anos e menos de 60kg: "+tipo1);
+		System.out.println("Media de pessoa com altura inferior a 1,50m: "+mediaInferior);
+		System.out.println("Porcentagem de pessoas com olhos azuis: "+porcentagem);
+		System.out.println("Quantidade de pessoas ruivas e que não possuem olhos azuis: "+tipo4);
+		
+		sc.close();
+
+	}
+
+}
