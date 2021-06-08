@@ -1,0 +1,43 @@
+package atividade;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Questao7 {
+	
+	public static void main(String[] args) {
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		
+		int idade, tipo1 = 0, tipo2 =0, tipo3 = 0;
+		double altura, mediaaltura, totalaltura = 0, peso, porcentagem;
+		
+		for (int i = 1; i <= 5; i++) {
+			System.out.println("Insira a idade, o peso e a altura (em cm) da pessoa: ");
+			idade = sc.nextInt();
+			peso = sc.nextDouble();
+			altura = sc.nextDouble(); 
+			
+			if (idade > 50) {
+				tipo1 = tipo1 + 1;
+			}
+			if (idade > 10 && idade < 20) {
+				tipo2 = tipo2 + 1;
+				totalaltura = altura + totalaltura;
+			}
+			if (peso < 40) {
+				tipo3 = tipo3 + 1;
+			}
+			
+		}
+		
+		mediaaltura = totalaltura/tipo2;
+		porcentagem = (tipo3 * 100)/5;
+		System.out.println("Quantidade de pessoas com idade superior a 50: "+tipo1);
+		System.out.println("Média da altura das pessoas com idade entre 10 e 20: "+mediaaltura);
+		System.out.println("Porcetagem de pessoas com peso menor que 40kg: "+porcentagem);
+		
+		sc.close();
+		
+	}
+}
